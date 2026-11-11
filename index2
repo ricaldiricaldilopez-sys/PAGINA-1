@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EducaWeb</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#eef4ff;color:#222}
+header{background:#1746a2;color:white;padding:22px;text-align:center}
+header h1{margin:0}
+nav{background:#102f70;padding:15px;text-align:center}
+nav a{color:white;text-decoration:none;margin:12px;font-weight:bold}
+nav a:hover{color:#facc15}
+main{max-width:1000px;margin:auto;padding:20px}
+section{margin:25px 0;scroll-margin-top:15px}
+h2{color:#1746a2}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{background:white;padding:18px;border-radius:12px;box-shadow:0 3px 10px #0002}
+.card img{width:100%;border-radius:8px}
+button{background:#1746a2;color:white;border:0;padding:11px;border-radius:7px;cursor:pointer}
+input,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #aaa;border-radius:7px}
+footer{background:#102f70;color:white;text-align:center;padding:20px}
+#portal{display:none}
+.login{max-width:380px;margin:100px auto;background:white;padding:25px;border-radius:15px;box-shadow:0 3px 15px #0003}
+.login h2{text-align:center}
+.hero{background:#dbeafe;padding:30px;border-radius:12px;text-align:center}
+#mensaje{color:green}
+</style>
+</head>
+
+<body>
+
+<!-- INICIO DE SESIÓN -->
+<div id="login">
+<div class="login">
+<h2>📘 EducaWeb</h2>
+<h3>Iniciar sesión</h3>
+
+<label>Usuario</label>
+<input type="text" id="usuario" placeholder="Ingresa tu usuario">
+
+<label>Contraseña</label>
+<input type="password" id="clave" placeholder="Ingresa tu contraseña">
+
+<button onclick="ingresar()">INGRESAR</button>
+<p id="error" style="color:red"></p>
+
+<small>Usuario: estudiante<br>Contraseña: 12345</small>
+</div>
+</div>
+
+<!-- PORTAL EDUCATIVO -->
+<div id="portal">
+
+<header>
+<h1>📘 EDUCAWEB</h1>
+<p>Aprende algo nuevo cada día</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#cursos">Cursos</a>
+<a href="#noticias">Noticias</a>
+<a href="#videos">Videos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+
+<section id="inicio">
+<div class="hero">
+<h2>¡Bienvenido a EducaWeb!</h2>
+<p>Tu portal educativo para aprender, investigar y descubrir nuevos conocimientos.</p>
+</div>
+</section>
+
+<section>
+<h2>🔎 Buscador</h2>
+<input id="busqueda" placeholder="Buscar un curso o tema...">
+<button onclick="buscar()">Buscar</button>
+<p id="resultado"></p>
+</section>
+
+<section id="cursos">
+<h2>📚 Nuestros cursos</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Matemática</h3>
+<p>Aprende operaciones, geometría y ejercicios.</p>
+</div>
+
+<div class="card">
+<h3>Comunicación</h3>
+<p>Mejora tu lectura, escritura y ortografía.</p>
+</div>
+
+<div class="card">
+<h3>Ciencia y Tecnología</h3>
+<p>Descubre experimentos y avances tecnológicos.</p>
+</div>
+
+<div class="card">
+<h3>Historia</h3>
+<p>Conoce acontecimientos importantes del mundo.</p>
+</div>
+
+</div>
+</section>
+
+<section id="noticias">
+<h2>📰 Noticias educativas</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://placehold.co/400x180/dbeafe/1746a2?text=Lectura" alt="Libros">
+<h3>Importancia de la lectura</h3>
+<p>Leer ayuda a mejorar nuestros conocimientos.</p>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x180/dcfce7/166534?text=Tecnologia" alt="Tecnología">
+<h3>Tecnología educativa</h3>
+<p>La tecnología facilita el aprendizaje.</p>
+</div>
+
+</div>
+</section>
+
+<section id="videos">
+<h2>🎬 Videos educativos</h2>
+<div class="card">
+<p>Encuentra videos para reforzar tus conocimientos.</p>
+<a href="https://www.youtube.com/results?search_query=videos+educativos" target="_blank">Ver videos educativos</a>
+</div>
+</section>
+
+<section id="contacto">
+<h2>📞 Contacto</h2>
+<div class="card">
+<p>Correo: contacto@educaweb.com</p>
+<p>Teléfono: 999 999 999</p>
+
+<h3>Envíanos un mensaje</h3>
+<input id="nombre" placeholder="Tu nombre">
+<textarea id="consulta" placeholder="Escribe tu mensaje"></textarea>
+<button onclick="enviar()">Enviar</button>
+<p id="mensaje"></p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 EducaWeb - Portal Educativo</p>
+<button onclick="salir()">Cerrar sesión</button>
+</footer>
+
+</div>
+
+<script>
+
+// CLAVES DE ACCESO
+function ingresar(){
+let usuario=document.getElementById("usuario").value;
+let clave=document.getElementById("clave").value;
+
+if(usuario==="estudiante" && clave==="12345"){
+document.getElementById("login").style.display="none";
+document.getElementById("portal").style.display="block";
+}else{
+document.getElementById("error").innerText="Usuario o contraseña incorrectos";
+}
+}
+
+// CERRAR SESIÓN
+function salir(){
+document.getElementById("portal").style.display="none";
+document.getElementById("login").style.display="block";
+}
+
+// BUSCADOR
+function buscar(){
+let texto=document.getElementById("busqueda").value.toLowerCase();
+let secciones=["matemática","comunicación","ciencia y tecnología","historia","noticias","videos"];
+let encontrado=secciones.find(x=>x.includes(texto));
+
+document.getElementById("resultado").innerText=
+texto===""?"Escribe algo para buscar.":
+encontrado?"Contenido encontrado: "+encontrado:
+"No se encontró el tema.";
+}
+
+// FORMULARIO
+function enviar(){
+let nombre=document.getElementById("nombre").value;
+if(nombre.trim()===""){
+document.getElementById("mensaje").innerText="Escribe tu nombre.";
+return;
+}
+document.getElementById("mensaje").innerText="¡Gracias por tu mensaje, "+nombre+"!";
+document.getElementById("nombre").value="";
+document.getElementById("consulta").value="";
+}
+
+</script>
+</body>
+</html>
