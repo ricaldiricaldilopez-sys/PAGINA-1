@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAMEZONE - Videojuegos</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101629;
+  color: white;
+}
+header {
+  background: #080d1b;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  color: #00e5ff;
+  margin: 0;
+}
+nav {
+  background: #202b49;
+  padding: 15px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #00e5ff;
+}
+.hero {
+  text-align: center;
+  padding: 50px 15px;
+  background: linear-gradient(120deg,#4c1d95,#075985);
+}
+.hero h2 {
+  font-size: 38px;
+}
+input {
+  padding: 13px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  border: none;
+  margin: 15px;
+}
+section {
+  padding: 30px 20px;
+}
+h2 {
+  color: #00e5ff;
+}
+.juegos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+}
+.card {
+  background: #202b49;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+button {
+  background: #00cce8;
+  color: #08111d;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  background: #8df4ff;
+}
+.noticia {
+  background: #202b49;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+#respuesta {
+  background: #202b49;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+footer {
+  background: #080d1b;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎮 GAMEZONE</h1>
+<p>El mundo de los videojuegos está aquí</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#juegos">Juegos</a>
+<a href="#noticias">Noticias</a>
+<a href="#asistente">Asistente</a>
+</nav>
+
+<div class="hero" id="inicio">
+<h2>¡BIENVENIDO A GAMEZONE!</h2>
+<p>Descubre videojuegos, noticias y mucha diversión.</p>
+<input type="text" id="buscador"
+placeholder="Buscar videojuegos..."
+onkeyup="buscarJuego()">
+</div>
+
+<section id="juegos">
+<h2>🔥 VIDEOJUEGOS POPULARES</h2>
+
+<div class="juegos" id="lista">
+
+<div class="card">
+<img src="https://placehold.co/400x200/14532d/ffffff?text=MINECRAFT">
+<h3>Minecraft</h3>
+<p>Explora mundos y construye tus propias aventuras.</p>
+<button onclick="info('Minecraft','Juego de construcción, exploración y creatividad.')">Ver más</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x200/312e81/ffffff?text=ROBLOX">
+<h3>Roblox</h3>
+<p>Disfruta de miles de experiencias creadas por usuarios.</p>
+<button onclick="info('Roblox','Plataforma con diferentes juegos y experiencias.')">Ver más</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x200/9a3412/ffffff?text=FORTNITE">
+<h3>Fortnite</h3>
+<p>Participa en desafíos y diferentes modos de juego.</p>
+<button onclick="info('Fortnite','Videojuego con diferentes modos y eventos.')">Ver más</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x200/9d174d/ffffff?text=FREE+FIRE">
+<h3>Free Fire</h3>
+<p>Un videojuego de acción para dispositivos móviles.</p>
+<button onclick="info('Free Fire','Juego móvil con personajes y partidas de acción.')">Ver más</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x200/1d4ed8/ffffff?text=EFOOTBALL">
+<h3>eFootball</h3>
+<p>Disfruta del fútbol y crea tus equipos favoritos.</p>
+<button onclick="info('eFootball','Videojuego deportivo de fútbol.')">Ver más</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/400x200/7e22ce/ffffff?text=ROCKET+LEAGUE">
+<h3>Rocket League</h3>
+<p>Combina autos y fútbol en emocionantes partidos.</p>
+<button onclick="info('Rocket League','Videojuego que combina fútbol y vehículos.')">Ver más</button>
+</div>
+
+</div>
+</section>
+
+<section id="noticias">
+<h2>📰 NOTICIAS DE VIDEOJUEGOS</h2>
+
+<div class="noticia">
+<h3>Nuevas actualizaciones</h3>
+<p>Los videojuegos reciben actualizaciones con nuevas funciones y mejoras.</p>
+</div>
+
+<div class="noticia">
+<h3>Avances tecnológicos</h3>
+<p>Los videojuegos presentan mejores gráficos y experiencias digitales.</p>
+</div>
+
+<div class="noticia">
+<h3>Juegos populares</h3>
+<p>Minecraft, Roblox y Fortnite son algunos de los juegos conocidos por millones de usuarios.</p>
+</div>
+</section>
+
+<section id="asistente">
+<h2>🤖 ASISTENTE GAMEZONE</h2>
+<p>Escribe una pregunta sobre videojuegos:</p>
+
+<input type="text" id="pregunta"
+placeholder="Ejemplo: ¿Qué es Minecraft?">
+
+<button onclick="responder()">Preguntar</button>
+
+<div id="respuesta">
+Hola, soy el asistente GameZone. ¡Pregúntame algo!
+</div>
+</section>
+
+<footer>
+<p>© 2026 GAMEZONE | Portal de videojuegos</p>
+<p>Creado con HTML, CSS y JavaScript</p>
+</footer>
+
+<script>
+
+function buscarJuego() {
+  let texto = document.getElementById("buscador").value.toLowerCase();
+  let tarjetas = document.querySelectorAll(".card");
+
+  tarjetas.forEach(function(tarjeta) {
+    tarjeta.style.display =
+      tarjeta.innerText.toLowerCase().includes(texto)
+      ? "block" : "none";
+  });
+}
+
+function info(nombre, descripcion) {
+  alert(nombre + "\n\n" + descripcion);
+}
+
+function responder() {
+  let pregunta = document.getElementById("pregunta").value.toLowerCase();
+  let respuesta = "No tengo información sobre esa pregunta. Prueba preguntando por Minecraft, Roblox, Fortnite o Free Fire.";
+
+  if (pregunta.includes("minecraft")) {
+    respuesta = "Minecraft es un videojuego donde puedes explorar, construir y crear mundos.";
+  } else if (pregunta.includes("roblox")) {
+    respuesta = "Roblox es una plataforma con miles de experiencias y juegos creados por usuarios.";
+  } else if (pregunta.includes("fortnite")) {
+    respuesta = "Fortnite es un videojuego con diferentes modos, desafíos y eventos.";
+  } else if (pregunta.includes("free fire")) {
+    respuesta = "Free Fire es un videojuego de acción para dispositivos móviles.";
+  } else if (pregunta.includes("efootball")) {
+    respuesta = "eFootball es un videojuego de fútbol.";
+  } else if (pregunta.includes("rocket league")) {
+    respuesta = "Rocket League combina autos y fútbol.";
+  } else if (pregunta.includes("hola")) {
+    respuesta = "¡Hola! Bienvenido a GameZone. ¿Qué videojuego te gusta?";
+  } else if (pregunta.includes("consejo")) {
+    respuesta = "Organiza tu tiempo, protege tus datos personales y respeta a los demás jugadores.";
+  }
+
+  document.getElementById("respuesta").innerText = respuesta;
+}
+
+</script>
+
+</body>
+</html>
